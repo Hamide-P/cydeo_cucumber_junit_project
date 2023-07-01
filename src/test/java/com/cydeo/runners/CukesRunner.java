@@ -12,5 +12,6 @@ import org.junit.runner.RunWith;
         dryRun = false, // if we want to execute stepDefinitions or not (false or true)
         tags = "@wip",
         publish = true //generating a report with public link
+
 )
 public class CukesRunner {}
