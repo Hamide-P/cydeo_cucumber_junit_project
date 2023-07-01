@@ -5,19 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class GoogleSearchPage {
+public class BingSearchPage {
 
+    // Task 2: Bing Search Title Verification
     //#1- Create the constructor and initialize the driver with object
-    public GoogleSearchPage() {
+    public BingSearchPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    //#2- Use @FindBy instead of findElement()
+    // #2:
     @FindBy(name = "q")
     public WebElement searchBox;
-
-
-    @FindBy(id = "L2AGLb")
-    public WebElement rejectAllCookies;
 
 }
