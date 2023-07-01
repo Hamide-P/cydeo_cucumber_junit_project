@@ -13,15 +13,15 @@ public class Google_StepDefinitions {
 
     GoogleSearchPage googleSearchPage = new GoogleSearchPage();
 
-    @When("user searches for apple")
-    public void user_searches_for_apple() {
-        googleSearchPage.searchBox.sendKeys("apple" + Keys.ENTER);
+    @When("user searches for {word}") // word as a parametrized data[it is not used with empty space]
+    public void user_searches_for_apple(String word) {
+        googleSearchPage.searchBox.sendKeys(word + Keys.ENTER);
     }
 
-    @Then("user should see apple in the title")
-    public void user_should_see_apple_in_the_title() {
+    @Then("user should see {word} in the title")
+    public void user_should_see_apple_in_the_title(String word) {
 
-        BrowserUtils.verifyTitle("apple - Google Search");
+        BrowserUtils.verifyTitle(word +" - Google Search");
     }
 
     @When("user is on the Google search page")
@@ -29,6 +29,7 @@ public class Google_StepDefinitions {
 
         Driver.getDriver().get("https://www.google.com");
 
+        googleSearchPage.rejectAllCookies.click();
     }
 
     @Then("user should see title is Google")
@@ -43,5 +44,9 @@ public class Google_StepDefinitions {
 
     }
 
+
+//    @And("user sees {int} apples")
+//    public void userSeesApples(int arg0) {
+//    }
 }
 
