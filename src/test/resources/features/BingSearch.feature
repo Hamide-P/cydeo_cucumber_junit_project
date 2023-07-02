@@ -8,7 +8,7 @@ Feature: Bing search functionality
     When user enters orange in the Bing search box
     Then user should see orange in the title
 
-  @wip
+
   Scenario: Search result  title verification
     Given user is on the Bing search page
     When user enters "orange" in the Bing search box

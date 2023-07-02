@@ -3,9 +3,12 @@ package com.cydeo.utilities;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class BrowserUtils {
@@ -96,5 +99,34 @@ public class BrowserUtils {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollBy(0, " + pixels + ")");
     }*/
+
+
+    /**
+     * This method accepts a dropdown element and returns a List<String> that contains all options values as String.
+     * @param dropdownElement
+     * @return actualMonth_as_STRING
+     */
+    public static List<String> dropdownOptions_as_String(WebElement dropdownElement){
+
+
+        //WebElement come from DropdownsPage where we located there
+        //we store them in month object and can do any select object action
+        Select month = new Select(dropdownElement);
+
+        //getting all the ACTUAL options from  webElement and store them in list of WebElement
+        List<WebElement> actualMonth_as_WebElement = month.getOptions();
+
+        //Creating an EMPTY list of String to store ACTUAL <option> as String
+        List<String> actualMonth_as_String = new ArrayList<>();
+
+        //Looping through the List<WebElement>, getting all options' texts, and storing them into List<String>
+        for (WebElement each: actualMonth_as_WebElement) {
+
+            actualMonth_as_String.add(each.getText());
+        }
+
+        return actualMonth_as_String;
+
+    }
 
 }
