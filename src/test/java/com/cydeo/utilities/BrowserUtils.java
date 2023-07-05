@@ -103,10 +103,11 @@ public class BrowserUtils {
 
     /**
      * This method accepts a dropdown element and returns a List<String> that contains all options values as String.
+     *
      * @param dropdownElement
      * @return actualMonth_as_STRING
      */
-    public static List<String> dropdownOptions_as_String(WebElement dropdownElement){
+    public static List<String> dropdownOptions_as_String(WebElement dropdownElement) {
 
 
         //WebElement come from DropdownsPage where we located there
@@ -120,7 +121,7 @@ public class BrowserUtils {
         List<String> actualMonth_as_String = new ArrayList<>();
 
         //Looping through the List<WebElement>, getting all options' texts, and storing them into List<String>
-        for (WebElement each: actualMonth_as_WebElement) {
+        for (WebElement each : actualMonth_as_WebElement) {
 
             actualMonth_as_String.add(each.getText());
         }
@@ -129,4 +130,16 @@ public class BrowserUtils {
 
     }
 
+    public static void clickRadioButton(List<WebElement> radioButtons, String attributeValue) {
+
+        for (WebElement each : radioButtons) {
+
+            // get each attribute value="MasterCard" then check if it is equal to the given "Master Card" from feature
+            if (each.getAttribute("value").equalsIgnoreCase(attributeValue)){
+                each.click();
+            }
+        }
+
+
+    }
 }
