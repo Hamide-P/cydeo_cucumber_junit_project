@@ -1,4 +1,3 @@
-@wiki
 Feature: Wikipedia Search Functionality Title Verification
   Agile story: As a user, when I am on the Wiki search page
   I should be able to search anything and see relevant results

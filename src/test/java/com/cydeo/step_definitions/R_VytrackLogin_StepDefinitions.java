@@ -74,15 +74,24 @@ public class R_VytrackLogin_StepDefinitions {
         // implicit wait doesn't work for assertion because there is no findelement(s)/FindBy to look for
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.invisibilityOf(vytrackLoginPage.loadingBar));
-
         Assert.assertEquals("Title verification failed!",expectedTitle,actualTitle);
 
     }*/
 
     @When("user enters the {string} information")
     public void user_enters_the_information(String userType) {
-
         vytrackLoginPage.loginDynamic(userType);
+    }
 
+
+    @When("the user login with {string},{string}")
+    public void the_user_login_with(String username, String password) {
+        vytrackLoginPage.login(username, password);
+    }
+
+
+    @Then("the user should not be able to log in")
+    public void the_user_should_not_be_able_to_log_in() {
+        BrowserUtils.verifyTitle("Login");
     }
 }
