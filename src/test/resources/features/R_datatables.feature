@@ -1,4 +1,5 @@
 @vytrackdatatable
+
 Feature: Examples for DataTable
 
 
@@ -38,3 +39,14 @@ Feature: Examples for DataTable
       | Marketing          |
       | Reports & Segments |
       | System             |
+
+@wip
+
+  Scenario: Login with given information
+    Given user is on the login page
+    When user enters below credentials
+      | username | user10      |
+      | password | UserUser123 |
+    Then user should be able to see following information
+      | firstname | John |
+      | lastname  | Doe  |
